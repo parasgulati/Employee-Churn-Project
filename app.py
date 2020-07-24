@@ -6,10 +6,7 @@ app = Flask(__name__)
 class LogisticRegressionModel(Resource):
   def get(self):
     print('Hi in logisticRegressionModelGet')
-    predictQuery={}
-    listColumns=t.columns.tolist()
-    for i in listColumns:
-      predictQuery[i]=request.args.get(i)
+    predictQuery=request.args.get('Data')
     answer=predictLogisticModel(predictQuery)
     return {'Attrition':answer}
 
