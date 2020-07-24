@@ -1,3 +1,5 @@
 django
 gunicorn
-django-heroku
+whitenoise
+psycopg2
+django-environ
