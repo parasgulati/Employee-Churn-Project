@@ -8,7 +8,7 @@ def predict():
   if request.method=='POST':
     data=request.form['data']
     prediction = model.predict.predictLogisticModel(data)
-    return json.dumps(str(prediction))
+    return json.dumps('success')
   
 @app.route('/predictRandomForest',methods=['GET','POST'])
 def predict():
