@@ -8,21 +8,24 @@ from scipy.special import comb
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
-from sklearn.externals import joblib 
+import pickle 
 
-LogisticRegression = joblib.load('linearRegressionModelEmployeeChurn.pkl')
-RandomForestRegressor=joblib.load('randomForestModelEmployeeChurn.pkl')
+with open('model_logisticRegression','rb') as f:
+  log_model=pickle.load(f)
+with open('model_randomForest','rb') as f:
+  reg_model=pickle.load(f)
+
 
 def predictLogisticModel(predictQuery):
   temp=list(predictQuery.values())
   temp=numpy.array(temp)
   temp=temp.reshape(1, -1)
-  yp=LogisticRegression.predict(temp) 
+  yp=log_model.predict(temp) 
   return yp
 
 def predictRandomForestModel(predictQuery):
   temp=list(predictQuery.values())
   temp=numpy.array(temp)
   temp=temp.reshape(1, -1)
-  yp=RandomForestRegressor.predict(temp)
+  yp=reg_model.predict(temp)
   return yp
