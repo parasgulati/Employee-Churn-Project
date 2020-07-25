@@ -100,4 +100,4 @@ api.add_resource(LogisticRegressionModel, '/predictLogisticRegression')
 api.add_resource(RandomForestRegressorModel, '/predictRandomForest')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)
+    app.run(debug=False)
