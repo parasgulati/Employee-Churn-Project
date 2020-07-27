@@ -10,7 +10,6 @@ api = Api(app)
 
 class LogisticRegressionModel(Resource):
 	def get(self):
-		
 		Dict={
 			'Age':0,
 			'BusinessTravel':0,
@@ -47,7 +46,6 @@ class LogisticRegressionModel(Resource):
 			'YearsSinceLastPromotion':0,
 			'YearsWithCurrManager':0
 		}
-		
 		for keys,values in Dict.items():
 			Dict[keys]=request.args.get(keys)
 		answer=predict.predictLogisticModel(Dict)
